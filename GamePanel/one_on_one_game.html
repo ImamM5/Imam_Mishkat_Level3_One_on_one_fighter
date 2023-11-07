@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Panel</title>
+        <link rel="stylesheet" type="text/css" href="gamePanelCSS.css"/>
+
+        <script type="text/javascript" src="gamePanelJS.js"></script>
+    </head>
+
+    <body onload="initialize();">
+        <div class= "characterDisplay">
+
+            <div class="topBox">
+                <div class="playerImageContainer">
+                    <img id="playerImg" src=""/>
+                    <span id="playerInfoBar">
+                        <b><span id = "pNameHealth"></span></b></span>
+                </div>
+                
+                <div class = "enemyImageContainer">
+                    <span id="enemyInfoBar">
+                        <b><span id = "eNameHealth"></span></b></span>
+                    <img id="enemyImg" src=""/>
+                </div>
+            </div>
+
+            <div class="bottomBox">
+                <div class="regBtnP">
+                    <button id ="attackBtn" onclick="Attack()">Attack</button>
+                    <button id="defendBtn" onclick="Defend()">Defend</button>
+                </div>
+                 <br />
+                <div id ="ultBtnP">
+                    <button id="ultBtn" onclick="Ultimate()">Ultimate</button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="outsideLayout">
+            <div class="statsPanel">
+                <div class="playerStats">
+                    <h2 id="pStatsTitle"></h2>
+                    <ul>
+                        <li>Strength: <span id="pst"></span></li>
+                        <li>Speed: <span id="pSpeed"></span></li>
+                        <li>Cunning: <span id="pcu"></span></li>
+                        <li>Fatigue: <span id="pfa"></span></li>
+        
+        
+                    </ul>
+                </div>
+        
+                <div class="enemyStats">
+                    <h2 id="eStatsTitle"></h2>
+                    <ul>
+                        <li>Strength: <span id="est"></span></li>
+                        <li>Speed: <span id="eSpeed"></span></li>
+                        <li>Cunning: <span id="ecu"></span></li>
+                        <li>Fatigue: <span id="efa"></span></li>
+                    </ul>
+                </div>    
+    
+            </div>
+    
+            <div class="logPanel">
+                <div class="playerLog" style="overflow-y:scroll;">
+                    <h2 id="pLogTitle"></h2>
+                    <div id="pLoglist" ></div>
+                </div>
+        
+                <div class="enemyLog" style="overflow-y:scroll;">
+                    <h2 id="eLogTitle"></h2>
+                    <div id="eLoglist"></div>
+                </div>    
+    
+            </div>
+        </div>
+
+        
+        <script>
+            //javascript for event listener 
+            let enemyCImg = document.getElementById("enemyImg");
+            let playerCImg = document.getElementById("playerImg");
+            let attackButton = document.getElementById("attackBtn");
+            let defendButton = document.getElementById("defendBtn");
+            let ultButton = document.getElementById("ultBtn");
+
+            function changeEBorderA()
+            {
+                enemyCImg.style.border= "5px solid rgb(217, 100, 100)";
+            }
+
+            function normalEBorderA()
+            {
+                enemyCImg.style.border= "5px solid transparent";
+            }
+
+            function changePBorderD()
+            {
+                playerCImg.style.border= "5px solid rgb(104, 104, 220)";
+            }
+
+            function normalPBorderD()
+            {
+                playerCImg.style.border= "5px solid transparent";
+            }
+
+            function changeUltBtn()
+            {
+                ultButton.style.backgroundColor = 'rgb(216, 116, 116)';
+                ultButton.style.color = 'black';
+                ultButton.style.boxShadow= '5px 5px 4px rgba(0, 0, 0, 0.2)';
+            }
+
+            function normalUltBtn()
+            {
+                ultButton.style.backgroundColor= 'rgb(97, 22, 22)';
+                ultButton.style.color = 'white';
+                ultButton.style.boxShadow= '0 0 0';
+            }
+
+
+
+            attackButton.addEventListener("mouseover",changeEBorderA);
+            attackButton.addEventListener("mouseout",normalEBorderA);
+            defendButton.addEventListener("mouseover",changePBorderD);
+            defendButton.addEventListener("mouseout",normalPBorderD);
+            ultButton.addEventListener("mouseover",changeEBorderA);
+            ultButton.addEventListener("mouseout",normalEBorderA);
+            ultButton.addEventListener("mouseover",changeUltBtn);
+            ultButton.addEventListener("mouseout",normalUltBtn);
+
+        </script>
+    
+    
+        
+              
+    </body>
+</html>
